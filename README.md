@@ -34,13 +34,19 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 - [x] make it deploy (vercel)
 - [x] scaffold basic ui with mock data
-- [] tide up build process
-- [] actually set up a database (vercel postgres)
-- [] Attach database to UI
-- [] Add authentication (w/ clerk)
+- [x] tide up build process
+- [x] actually set up a database (vercel postgres)
+- [x] Attach database to UI
+- [x] Add authentication (w/ clerk)
 - [] Add image upload
+- [] "taint" (server-only)
+- [] Use Next/Image component
 - [] Error management (w/ Sentry)
 - [] Routing/image page (parallel route)
 - [] Delete button (w/ server Actions)
 - [] Analytics (postHog)
 - [] RateLimiting (upStash)
+
+# Personal TODO
+
+- [] create user managements system with clerk --- the suggestion here is to use the events from clerk to create the users in the database and add any related structures
