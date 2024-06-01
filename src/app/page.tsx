@@ -2,13 +2,14 @@ import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { db } from "~/server/db";
+import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 // this will make the page update on each visit to view the suggestions
 // for the next js plugins in ts you need to use the ts version of the workspace
 
 async function Images() {
-  const images = await db.query.images.findMany({});
+  const images = await getMyImages();
   return (
     <div className="flex flex-wrap gap-12 px-4 py-16 ">
       {images.map((image, idx) => (
