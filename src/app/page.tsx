@@ -15,14 +15,16 @@ async function Images() {
     <div className="flex flex-wrap gap-12 px-4 py-16 ">
       {images.map((image, idx) => (
         <div key={image.id + idx}>
-          <Image
-            src={image.url}
-            alt={`Image ${image.id}`}
-            className="h-48 w-48 rounded-lg object-cover"
-            width={500}
-            height={500}
-            style={{ objectFit: "contain" }}
-          />
+          <Link href={`/img/${image.id}`} passHref>
+            <Image
+              src={image.url}
+              alt={`Image ${image.id}`}
+              className="h-48 w-48 rounded-lg object-cover"
+              width={500}
+              height={500}
+              style={{ objectFit: "contain" }}
+            />
+          </Link>
         </div>
       ))}
     </div>
