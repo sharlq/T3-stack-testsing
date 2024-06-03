@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { db } from "~/server/db";
 import { getMyImages } from "~/server/queries";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic";
 // this will make the page update on each visit to view the suggestions
@@ -14,11 +15,16 @@ async function Images() {
     <div className="flex flex-wrap gap-12 px-4 py-16 ">
       {images.map((image, idx) => (
         <div key={image.id + idx}>
-          <img
-            src={image.url}
-            alt={`Image ${image.id}`}
-            className="h-48 w-48 rounded-lg object-cover"
-          />
+          <Link href={`/img/${image.id}`} passHref>
+            <Image
+              src={image.url}
+              alt={`Image ${image.id}`}
+              className="h-48 w-48 rounded-lg object-cover"
+              width={500}
+              height={500}
+              style={{ objectFit: "contain" }}
+            />
+          </Link>
         </div>
       ))}
     </div>
